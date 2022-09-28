@@ -1,0 +1,11 @@
+<p>
+    <strong>メッセージ:</strong>
+    <%= @tweet.message %>
+</p>
+<p>
+    <%= image_tag "/get_tweet/#{@tweet.id}" %>
+</p>
+<p>
+    <%= (Time.zone.now - @tweet.tdate).floor / 60 %>分前
+</p>
+<%= link_to '戻る', '/' %>
