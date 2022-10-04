@@ -1,6 +1,7 @@
 class TweetsController < ApplicationController
     def index
         @tweets = Tweet.all
+        logger.debug @tweets.count
     end
     
     def new
@@ -18,16 +19,16 @@ class TweetsController < ApplicationController
         @tweet = Tweet.new(message: message, file: file, tdate: time)
         if @tweet.save
             flash[:notice] = '1レコード追加しました'
-            redirect_to '/'
+            redirect_to root_path
         else
-            render 'new'
+            render new_tweet_path
         end
     end
     
     def destroy
         tweet = Tweet.find(params[:id])
         tweet.destroy
-        redirect_to '/'
+        redirect_to root_path
     end
     
     def edit
@@ -41,9 +42,9 @@ class TweetsController < ApplicationController
         @tweet.update(message: message ,file: file)
         if @tweet.save
             flash[:notice] = '1レコード追加しました'
-            redirect_to '/'
+            redirect_to root_path #"/"
         else
-            render 'new'
+            render new_tweet_path
         end
     end
     
