@@ -1,1 +1,10 @@
-<%= render partial: 'form', locals: { result: "登録", adress: "" } %>
+<% if @tweet.errors.present? %>
+<h3>エラーがあります。</h3>
+<ul>
+    <% @tweet.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+</ul>
+<% end %>
+
+render 
