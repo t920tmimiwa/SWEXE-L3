@@ -1,9 +1,8 @@
 <%= form_for @tweet, url: {action: :create} do |f| %>
-<p>
     <%= f.label :message, 'メッセージ' %>
     <%= f.text_field :message %>
 </p>
-<%= f.submit '登録' %>
+<%= f.submit "登録" %>
 <p>
     <%= f.label :file, 'ファイル' %>
     <%= f.file_field :file %>

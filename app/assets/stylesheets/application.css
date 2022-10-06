@@ -65,3 +65,8 @@ nav li a:hover {
     background-color: #555;
     color: white;
 }
+
+#footer { 
+    border-top: solid 1px #CCCCCC; text-align: center;
+    clear: both;
+}

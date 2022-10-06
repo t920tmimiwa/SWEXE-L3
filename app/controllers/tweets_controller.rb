@@ -40,12 +40,7 @@ class TweetsController < ApplicationController
         message = params[:tweet][:message]
         file = params[:tweet][:file].read
         @tweet.update(message: message ,file: file)
-        if @tweet.save
-            flash[:notice] = '1レコード追加しました'
-            redirect_to root_path #"/"
-        else
-            render new_tweet_path
-        end
+        redirect_to root_path
     end
     
     def get_tweet
